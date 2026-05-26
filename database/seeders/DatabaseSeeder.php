@@ -1,25 +1,27 @@
 <?php
-
 namespace Database\Seeders;
-
-use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Admin; // Tambahkan ini
 
 class DatabaseSeeder extends Seeder
 {
-    use WithoutModelEvents;
-
-    /**
-     * Seed the application's database.
-     */
-    public function run(): void
+    public function run()
     {
-        // User::factory(10)->create();
+        // Buat Akun Admin
+        Admin::create([
+            'name' => 'Super Admin',
+            'username' => 'admin',
+            'password' => bcrypt('admin123'),
+            'role' => 'admin'
+        ]);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Buat Akun Wali Kelas (Sesuaikan nama kelasnya dengan yang ada di table_siswa Anda)
+        Admin::create([
+            'name' => 'Wali Kelas XII RPL 1',
+            'username' => 'walirpl1',
+            'password' => bcrypt('wali123'),
+            'role' => 'walikelas',
+            'kelas_binaan' => 'XII RPL 1' // Wajib sama persis dengan yang di database
         ]);
     }
 }

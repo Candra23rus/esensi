@@ -6,7 +6,7 @@
     <title>Dashboard Absensi NFC</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
@@ -16,29 +16,31 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm mb-4">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">
-                <i class="bi bi-nfc me-2"></i>E-Absensi
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Data Siswa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Laporan</a>
-                    </li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="btn btn-light btn-sm mt-1 fw-semibold text-primary" href="#">Logout</a>
-                    </li>
-                </ul>
+    <nav class="bg-emerald-600 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Bagian Kiri: Logo & Menu -->
+                <div class="flex">
+                    <!-- Logo / Brand -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-white font-extrabold text-xl tracking-wider">ESENSI<span class="text-emerald-300">ADMIN</span></span>
+                    </div>
+                    <!-- Menu Desktop -->
+                    <div class="hidden sm:ml-8 sm:flex sm:space-x-8">
+                        <a href="{{ route('dashboard') }}" class="border-transparent text-emerald-100 hover:border-emerald-200 hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Dashboard</a>
+                        <a href="{{ route('register.web') }}" class="border-white text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-bold">Registrasi RFID</a>
+                        <a href="{{ route('rekap.absen') }}" class="border-transparent text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-bold">Laporan Absensi</a>
+                        <a href="{{ route('laporan.mingguan') }}" class="border-transparent text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-bold">Rekap Laporan</a>
+                    </div>
+                </div>
+                
+                <!-- Bagian Kanan: Profil & Logout -->
+                <div class="hidden sm:ml-6 sm:flex sm:items-center">
+                    <span class="text-emerald-100 text-sm font-medium mr-4">Halo, Administrator</span>
+                    <button class="bg-emerald-700 hover:bg-emerald-800 text-white px-4 py-2 rounded-lg text-sm font-bold transition duration-300 shadow-sm">
+                        Logout
+                    </button>
+                </div>
             </div>
         </div>
     </nav>

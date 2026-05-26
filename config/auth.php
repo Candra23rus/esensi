@@ -38,9 +38,12 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'web' => ['driver' => 'session', 'provider' => 'users'],
+        
+        // --- TAMBAHKAN INI ---
+        'admin' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'admins',
         ],
     ],
 
@@ -62,16 +65,20 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'users' => ['driver' => 'eloquent', 'model' => App\Models\User::class],
+        
+        // --- TAMBAHKAN INI ---
+        'admins' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', User::class),
+            'model' => App\Models\Admin::class,
         ],
+    ],
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-    ],
+
 
     /*
     |--------------------------------------------------------------------------
